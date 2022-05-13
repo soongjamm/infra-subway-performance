@@ -19,8 +19,7 @@ public class MapController {
     public ResponseEntity<PathResponse> findPath(@RequestParam Long source, @RequestParam Long target) {
         try {
             return ResponseEntity.ok(mapService.findPath(source, target));
-        } catch (IllegalArgumentException e) {
-            //  java.lang.IllegalArgumentException: graph must contain the source vertex
+        } catch (Exception e) {
             return ResponseEntity.noContent().build();
         }
     }
